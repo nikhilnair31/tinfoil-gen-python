@@ -17,7 +17,7 @@ cred = credentials.Certificate("tinfoil-22924-firebase-adminsdk-yoy3r-fd0074e406
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://tinfoil-22924-default-rtdb.firebaseio.com/'
 })
-ref = db.reference('/')
+ref = db.reference('/clues/')
 
 def get_clues():
     response = client.chat.completions.create(
@@ -28,7 +28,10 @@ def get_clues():
             "content": [
                 {
                 "type": "text",
-                "text": "You are to work on a fun and absurd conspiracy creator game. The player is to be presented with a list of things like notes, news snippets, images and location markers. They can then connect them in any order with some relationship between the connections. This final conspiracy is to be judged and scored to rank the player on a global leaderboard."
+                "text": """
+You are to work on a political conspiracy creator game. The player is to be presented with a list of things like notes, news snippets, images and real world location markers. 
+They can then connect them in any order with some relationship between the connections. This final conspiracy is to be judged and scored to rank the player on a global leaderboard.
+                """.strip()
                 }
             ]
             },
@@ -37,7 +40,7 @@ def get_clues():
             "content": [
                 {
                 "type": "text",
-                "text": "Create 1 of each clue_type"
+                "text": "Create 5 of each clue_type"
                 }
             ]
             }
